@@ -54,7 +54,7 @@ export default class WtwapiService {
     return this.getProtectedResource('/login/', token);
   };
 
-  logout = async (token) => {
+  signOut = async (token) => {
     const res = await fetch(`${this.apiBase}/logout/`, {
       method: 'DELETE',
       headers: {
