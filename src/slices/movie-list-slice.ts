@@ -1,10 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { MovieInfo } from '../types/movieInfo';
+import AsyncState from '../types/asyncState';
 
-interface MovieListState {
+interface MovieListState extends AsyncState {
   movies: MovieInfo[];
-  loading: boolean;
-  error: Error | null;
 }
 
 const initialState: MovieListState = {

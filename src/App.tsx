@@ -15,23 +15,23 @@ import {
 const api = new WtwapiService();
 
 function App() {
-  const token = useSelector((state: RootState) => state.sign.token);
+  const user = useSelector((state: RootState) => state.sign.userInfo);
   const dispatch = useDispatch();
-  const buttonText = token === null ? 'Sign in' : 'Sign out';
+  const buttonText = user === null ? 'Sign in' : 'Sign out';
 
   const signIn = () => {
-    if (token === null) {
+    if (user === null) {
       dispatch(signRequired());
       api
         .signIn('Oliver.conner@gmail.com', '12345678')
         .then((data) => {
-          dispatch(signInSuccess(data.token));
+          dispatch(signInSuccess(data));
         })
         .catch((error) => dispatch(signError(error)));
     } else {
       dispatch(signRequired());
       api
-        .signOut(token)
+        .signOut(user.token)
         .then(() => {
           dispatch(signOutSuccess());
         })
