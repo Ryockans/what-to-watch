@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { RootState } from '../../store/store';
 
 export default function PrivatePage() {
-  const user = useSelector((state: RootState) => state.sign.userInfo);
+  const user = useSelector((state: RootState) => state.auth.userInfo);
 
   if (user === null) {
     return (

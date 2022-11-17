@@ -17,3 +17,24 @@ export interface MovieInfo {
   video_link: string;
   preview_video_link: string;
 }
+
+export interface UserInfo {
+  id: number;
+  email: string;
+  name: string;
+  avatar_url: string;
+  token: string;
+}
+
+interface CommentAuthor {
+  id: number;
+  name: string;
+}
+
+export interface CommentInfo {
+  id: number;
+  user: CommentAuthor;
+  rating: number;
+  comment: string;
+  date: Date;
+}
