@@ -20,6 +20,10 @@ export default abstract class BaseApi {
     this.tokenService.loadToken();
   }
 
+  hasToken() {
+    return this.tokenService.token !== null;
+  }
+
   protected async get<T>(url: string, params?: RequestParams) {
     return this.request<T>('GET', url, params);
   }

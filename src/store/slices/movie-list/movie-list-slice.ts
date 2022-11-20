@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { MovieInfo } from '../../../types/models';
 import AsyncState from '../../../types/asyncState';
-import buildAsyncReducer from '../../utils/buildAsyncReducer';
+import buildAsyncReducers from '../../../utils/buildAsyncReducer';
 import { getAllMovies, getFavorite, getSimilar } from './actions';
 
 interface MovieListState extends AsyncState {
@@ -23,9 +23,7 @@ export const movieListSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    buildAsyncReducer(getAllMovies, builder);
-    buildAsyncReducer(getFavorite, builder);
-    buildAsyncReducer(getSimilar, builder);
+    buildAsyncReducers(builder, getAllMovies, getFavorite, getSimilar);
   },
 });
 

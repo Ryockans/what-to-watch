@@ -1,0 +1,77 @@
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  padding: 22px 75px;
+}
+
+.title {
+  font-size: 30px;
+  line-height: 36px;
+  color: #DFCF77;
+  font-weight: 300;
+  margin: 0 auto;
+  position: absolute;
+  left: 200px;
+  right: 200px;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.userBlock {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  list-style-type: none; }
+
+.userBlockItem:not(:last-child) {
+  margin-right: 15px;
+}
+
+.avatar {
+  width: 63px;
+  height: 63px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.avatar img {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  font-family: "object-fit:cover";
+  object-fit: cover; }
+
+.userBlockButton {
+  display: block;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  line-height: 24px;
+  color: #DFCF77;
+  font-weight: bold;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+.userBlockButton:hover {
+  color: #C9B37E;
+}
+
+.avatar,
+.userBlockButton {
+  cursor: pointer;
+}

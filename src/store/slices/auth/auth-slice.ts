@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { UserInfo } from '../../../types/models';
 import AsyncState from '../../../types/asyncState';
 import { getUser, signIn, signOut } from './actions';
-import buildAsyncReducer from '../../utils/buildAsyncReducer';
+import buildAsyncReducers from '../../../utils/buildAsyncReducer';
 
 export interface AuthState extends AsyncState {
   userInfo: UserInfo | null;
@@ -26,9 +26,7 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    buildAsyncReducer(signIn, builder);
-    buildAsyncReducer(signOut, builder);
-    buildAsyncReducer(getUser, builder);
+    buildAsyncReducers(builder, signIn, signOut, getUser);
   },
 });
 

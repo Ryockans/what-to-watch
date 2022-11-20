@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import authSliceReducer from './slices/auth/auth-slice';
 import moviesListReducer from './slices/movie-list/movie-list-slice';
 import movieReducer from './slices/movie/movie-slice';
+import pageReducer from './slices/page/slice';
 import WtwapiService from '../services/api/wtwapi';
 
 export const api = new WtwapiService();
@@ -11,6 +12,7 @@ const store = configureStore({
     auth: authSliceReducer,
     movieList: moviesListReducer,
     movie: movieReducer,
+    page: pageReducer,
   },
 });
 
