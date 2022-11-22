@@ -32,6 +32,10 @@
   object-fit: cover;
 }
 
+.movieCard video {
+  height: 175px;
+}
+
 .movieCardImage {
   position: relative;
   z-index: 1;

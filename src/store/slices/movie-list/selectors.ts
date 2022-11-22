@@ -1,3 +1,3 @@
 import { RootState } from '../../store';
 
-export const movieListSelector = (state: RootState) => state.movieList.movies;
+export const movieListSelector = (state: RootState) => state.movieList;

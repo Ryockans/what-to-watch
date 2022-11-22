@@ -13,7 +13,7 @@ import styles from './header.module.css';
 import { movieSelector } from '../../store/slices/movie/selectors';
 
 export const Header = () => {
-  const movie = useSelector(movieSelector);
+  const { movieInfo: movie } = useSelector(movieSelector);
   const userInfo = useSelector(userSelector);
   const avatarTemplateUrl = 'https://www.svgrepo.com/show/26473/avatar.svg';
   const imageSrc = userInfo ? userInfo.avatar_url : avatarTemplateUrl;

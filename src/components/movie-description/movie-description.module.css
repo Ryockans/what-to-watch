@@ -1,0 +1,79 @@
+.description {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.title {
+  font-family: "Arial Black", sans-serif;
+  font-size: 32px;
+  line-height: 45px;
+  margin: 0 0 7px;
+}
+
+.meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 17px;
+  line-height: 20px;
+  margin: 0 0 20px;
+}
+
+.genre::after {
+  content: '·';
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.button {
+  margin-right: 14px;
+  display: inline-block;
+  vertical-align: top;
+  text-decoration: none;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.26);
+  border-radius: 8px;
+  color: #EEE5B5;
+  font-size: 17px;
+  line-height: 20px;
+  padding: 13px 30px;
+  -webkit-transition: 0.2s background-color, 0.2s -webkit-transform;
+  transition: 0.2s background-color, 0.2s -webkit-transform;
+  transition: 0.2s background-color, 0.2s transform;
+  transition: 0.2s background-color, 0.2s transform, 0.2s -webkit-transform;
+  will-change: transform;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 128px;
+}
+
+.button:last-child {
+  margin-right: 0;
+}
+
+.button:hover {
+  background: rgba(0, 0, 0, 0.51);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.button img,
+.button svg {
+  width: 19px;
+  height: 19px;
+  vertical-align: top;
+  margin-right: 9px;
+}
