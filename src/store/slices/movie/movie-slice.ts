@@ -2,7 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CommentInfo, MovieInfo } from '../../../types/models';
 import AsyncState from '../../../types/asyncState';
 import buildAsyncReducers from '../../../utils/buildAsyncReducer';
-import { getComments, getMovie, getPromo, postComment } from './actions';
+import {
+  getComments,
+  getMovie,
+  getPromo,
+  postComment,
+  toggleFavorite,
+} from './actions';
 
 export interface MovieState extends AsyncState {
   movieInfo: MovieInfo | null;
@@ -28,7 +34,14 @@ export const movieSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    buildAsyncReducers(builder, getMovie, getComments, postComment, getPromo);
+    buildAsyncReducers(
+      builder,
+      getMovie,
+      getComments,
+      postComment,
+      getPromo,
+      toggleFavorite,
+    );
   },
 });
 

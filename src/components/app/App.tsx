@@ -6,6 +6,7 @@ import PublicPage from '../pages/public';
 import { api, AppDispatch } from '../../store/store';
 import { getUser, signIn, signOut } from '../../store/slices/auth/actions';
 import { MainPage } from '../pages/main';
+import { MoviePage } from '../pages/movie';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -44,6 +45,7 @@ function App() {
         <Route path="/public" element={<PublicPage />} />
         <Route path="/private" element={<PrivatePage />} />
         <Route path="/" element={<MainPage />} />
+        <Route path="/films/:id/*" element={<MoviePage />} />
       </Routes>
     </Fragment>
   );

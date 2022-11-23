@@ -8,6 +8,11 @@ interface IPostCommentPayload {
   comment: string;
 }
 
+interface IToggleFavoritePayload {
+  movieId: number;
+  status: 0 | 1;
+}
+
 export const getMovie = createAsyncThunk(
   'movie/getMovie',
   async (movieId: number, { rejectWithValue, dispatch }) => {
@@ -60,11 +65,14 @@ export const postComment = createAsyncThunk(
   },
 );
 
-export const addFavorite = createAsyncThunk(
-  'movie/addFavorite',
-  async (movieId: number, { rejectWithValue, dispatch }) => {
+export const toggleFavorite = createAsyncThunk(
+  'movie/toggleFavorite',
+  async (
+    { movieId, status }: IToggleFavoritePayload,
+    { rejectWithValue, dispatch },
+  ) => {
     try {
-      await api.toggleFavorite(movieId, '1');
+      await api.toggleFavorite(movieId, status);
       const res = await api.getMovie(movieId);
       dispatch(setMovie(res));
     } catch (err) {

@@ -36,8 +36,8 @@ export default class WtwapiService extends BaseApi {
     return this.get<MovieInfo[]>('/favorite/');
   }
 
-  toggleFavorite(id: number, status: '0' | '1') {
-    return this.post(`/favorite/${id}/${status}`);
+  toggleFavorite(id: number, status: 0 | 1) {
+    return this.post(`/favorite/${id}/${status}`, { body: {} });
   }
 
   signIn(email: string, password: string) {

@@ -6,14 +6,11 @@ export default class TokenService {
   }
 
   saveToken(token: string): void {
-    document.cookie = `token=${token}; max-age=2592000`;
+    localStorage.setItem('token', token);
   }
 
   loadToken(): string | null {
-    const token = document.cookie
-      .split(';')
-      .find((item) => item.includes('token'))
-      ?.slice(6);
+    const token = localStorage.getItem('token');
 
     if (!token) return null;
 
@@ -21,9 +18,7 @@ export default class TokenService {
   }
 
   removeToken(): void {
-    if (!this.token) return;
-
-    document.cookie = `token=${this.token}; max-age=0`;
+    localStorage.removeItem('token');
 
     this.token = null;
   }

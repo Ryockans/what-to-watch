@@ -1,0 +1,19 @@
+.reviews {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start
+}
+
+.reviewsCol {
+  width: calc((100% - 60px) / 2);
+  margin-right: 60px;
+  max-width: 380px
+}
+
+.reviewsCol:last-child {
+  margin-right: 0
+}

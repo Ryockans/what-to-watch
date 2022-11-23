@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import { userSelector } from '../../store/slices/auth/selectors';
 import Logo from '../logo';
@@ -6,13 +6,16 @@ import { useDispatch } from 'react-redux';
 import { signOut } from '../../store/slices/auth/actions';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppDispatch } from '../../store/store';
-import { pageSelector } from '../../store/slices/page/selectors';
-import { setPage } from '../../store/slices/page/slice';
 import Breadcrumbs from '../breadcrumbs';
 import styles from './header.module.css';
 import { movieSelector } from '../../store/slices/movie/selectors';
 
-export const Header = () => {
+interface HeaderProps {
+  children?: ReactNode;
+  breadcrumbs?: boolean;
+}
+
+export const Header: FC<HeaderProps> = ({ children, breadcrumbs }) => {
   const { movieInfo: movie } = useSelector(movieSelector);
   const userInfo = useSelector(userSelector);
   const avatarTemplateUrl = 'https://www.svgrepo.com/show/26473/avatar.svg';
@@ -20,28 +23,22 @@ export const Header = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const buttonText = userInfo ? 'Sign Out' : 'Sign In';
-  const currentPage = useSelector(pageSelector);
-  let headerText: string | null;
 
-  switch (currentPage) {
-    case 'sign-in':
-      headerText = 'Sign In';
-      break;
-    case 'my-list':
-      headerText = 'My List';
-      break;
-    default:
-      headerText = null;
-      break;
-  }
+  const authHandler = () => {
+    if (userInfo) {
+      dispatch(signOut()).then(() => navigate(0));
+    } else {
+      navigate('/sign-in');
+    }
+  };
 
   return (
     <header className={styles.header}>
       <Logo />
 
-      <h1 className={styles.title}>{headerText}</h1>
+      <h1 className={styles.title}>{children}</h1>
 
-      {currentPage === 'add-review' && (
+      {breadcrumbs && (
         <Breadcrumbs>
           <Link to={`/films/${movie.id}/review`}>{movie.name}</Link>
           <span>Add review</span>
@@ -55,17 +52,7 @@ export const Header = () => {
           </div>
         </li>
         <li className={styles.userBlockItem}>
-          <button
-            className={styles.userBlockButton}
-            onClick={() => {
-              if (userInfo) {
-                dispatch(signOut());
-              } else {
-                dispatch(setPage('sign-in'));
-                navigate('/sign-in');
-              }
-            }}
-          >
+          <button className={styles.userBlockButton} onClick={authHandler}>
             {buttonText}
           </button>
         </li>

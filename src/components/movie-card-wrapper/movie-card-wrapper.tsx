@@ -1,7 +1,9 @@
 import { FC, ReactElement, useState } from 'react';
 import { TimeoutId } from '@reduxjs/toolkit/dist/query/core/buildMiddleware/types';
+import { useNavigate } from 'react-router-dom';
 
 interface MovieCardWrapperProps {
+  id: number;
   previewLink: string;
   className: string;
   children: ReactElement[];
@@ -9,12 +11,14 @@ interface MovieCardWrapperProps {
 }
 
 export const MovieCardWrapper: FC<MovieCardWrapperProps> = ({
+  id,
   previewLink,
   children,
   className,
   previewDelay = 1000,
 }) => {
   const [isPreviewing, setIsPreviewing] = useState(false);
+  const navigate = useNavigate();
 
   const Preview = () => {
     return (
@@ -26,13 +30,18 @@ export const MovieCardWrapper: FC<MovieCardWrapperProps> = ({
 
   let previewTimeout: TimeoutId;
 
-  const MouseOverHandler = () => {
+  const mouseOverHandler = () => {
     previewTimeout = setTimeout(() => setIsPreviewing(true), previewDelay);
   };
 
-  const MouseLeaveHandler = () => {
+  const mouseLeaveHandler = () => {
     clearTimeout(previewTimeout);
     setTimeout(() => setIsPreviewing(false));
+  };
+
+  const clickHandler = () => {
+    navigate(`/films/${id}`);
+    navigate(0);
   };
 
   const content = isPreviewing ? <Preview /> : children;
@@ -40,8 +49,9 @@ export const MovieCardWrapper: FC<MovieCardWrapperProps> = ({
   return (
     <article
       className={className}
-      onMouseOver={MouseOverHandler}
-      onMouseOut={MouseLeaveHandler}
+      onMouseOver={mouseOverHandler}
+      onMouseOut={mouseLeaveHandler}
+      onClick={clickHandler}
     >
       {content}
     </article>

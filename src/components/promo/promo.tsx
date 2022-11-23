@@ -26,9 +26,11 @@ export const Promo: FC<PromoProps> = ({ movie }) => {
             />
           </div>
           <MovieDescription
+            id={movie.id}
             name={movie.name}
             genre={movie.genre}
             released={movie.released}
+            isFavorite={movie.is_favorite}
           />
         </div>
       </div>

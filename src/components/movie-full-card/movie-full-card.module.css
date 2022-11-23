@@ -1,0 +1,62 @@
+.movieCard {
+  position: relative;
+  z-index: 1;
+  color: #EEE5B5;
+  padding-bottom: 45px;
+  min-height: 100vh;
+}
+
+.movieCardHero {
+  position: relative;
+  z-index: 1;
+  min-height: 555px;
+}
+
+.wrap {
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 75px;
+}
+
+.TranslateTop {
+  margin-top: -170px;
+  position: relative;
+  z-index: 2;
+}
+
+.info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.poster {
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  width: 273px;
+  height: 410px;
+  margin-right: 40px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.poster img {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  font-family: "object-fit:cover";
+  object-fit: cover;
+}
+
+.description {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}

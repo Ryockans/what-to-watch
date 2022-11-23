@@ -21,14 +21,18 @@ export const MainPage: FC = () => {
   const [itemQuantity, setItemQuantity] = useState(8);
   const filterList = Array.from(new Set(movies.map((item) => item.genre)));
 
-  function showMore() {
+  const showMore = () => {
     setItemQuantity((quantity) => quantity + 8);
-  }
+  };
+
+  const filterMovies = (movies: MovieInfo[], filter: string) => {
+    return movies.filter((item) => item.genre === filter);
+  };
 
   const maxItems =
     filter === 'All genres'
       ? movies.length
-      : movies.filter((item) => item.genre === filter).length;
+      : filterMovies(movies, filter).length;
 
   const showMoreEnable = itemQuantity < maxItems;
 
@@ -41,13 +45,11 @@ export const MainPage: FC = () => {
 
   useEffect(() => {
     if (filter !== 'All genres') {
-      setDisplayedMovies(
-        movies.filter((item) => item.genre === filter).slice(0, itemQuantity),
-      );
+      setDisplayedMovies(filterMovies(movies, filter));
     } else {
       setDisplayedMovies(movies.slice(0, itemQuantity));
     }
-  }, [filter, itemQuantity]);
+  }, [filter, movies, itemQuantity]);
 
   useEffect(() => {
     setItemQuantity(8);

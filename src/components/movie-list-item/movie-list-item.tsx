@@ -1,6 +1,5 @@
 import MovieCardWrapper from '../movie-card-wrapper';
 import styles from './movie-list-item.module.css';
-import { Link } from 'react-router-dom';
 
 interface MovieListItemProps {
   id: number;
@@ -12,6 +11,7 @@ interface MovieListItemProps {
 export const MovieListItem = (props: MovieListItemProps) => {
   return (
     <MovieCardWrapper
+      id={props.id}
       className={styles.movieCard}
       previewLink={props.previewVideoLink}
     >
@@ -24,9 +24,7 @@ export const MovieListItem = (props: MovieListItemProps) => {
         />
       </div>
       <h3 className={styles.movieCardTitle}>
-        <Link className={styles.movieCardLink} to={`/films/${props.id}`}>
-          {props.name}
-        </Link>
+        <span className={styles.movieCardLink}>{props.name}</span>
       </h3>
     </MovieCardWrapper>
   );

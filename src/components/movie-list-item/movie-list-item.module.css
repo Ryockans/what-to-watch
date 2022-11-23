@@ -7,6 +7,7 @@
   position: relative;
   -webkit-transition: 0.2s -webkit-transform;
   transition: 0.2s transform;
+  cursor: pointer;
 }
 
 .movieCard:nth-child(4n) {

@@ -57,6 +57,9 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.button.Play {
   min-width: 128px;
 }
 
