@@ -1,26 +1,3 @@
-.promo {
-  position: relative;
-  z-index: 1;
-  color: #EEE5B5;
-  padding-bottom: 78px;
-}
-
-.wrap {
-  max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 75px;
-}
-
-.info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-}
-
 .poster {
   border-radius: 5px;
   overflow: hidden;
@@ -31,6 +8,20 @@
   margin-right: 40px;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+}
+
+.poster.Big {
+  width: 273px;
+  height: 410px;
+}
+
+.poster.Small {
+  width: 132px;
+  height: 198px;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transform: translateY(40px);
+  transform: translateY(40px);
 }
 
 .poster img {

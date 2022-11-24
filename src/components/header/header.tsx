@@ -40,8 +40,10 @@ export const Header: FC<HeaderProps> = ({ children, breadcrumbs }) => {
 
       {breadcrumbs && (
         <Breadcrumbs>
-          <Link to={`/films/${movie.id}/review`}>{movie.name}</Link>
-          <span>Add review</span>
+          <Link className={styles.link} to={`/films/${movie.id}`}>
+            {movie.name}
+          </Link>
+          <span className={styles.link}>Add review</span>
         </Breadcrumbs>
       )}
 

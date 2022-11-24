@@ -31,11 +31,11 @@
   margin-right: 0;
 }
 
-.navigationItem.Active .navigationLink {
+.navigationLink.Active  {
   font-weight: bold;
 }
 
-.navigationItem.Active .navigationLink::after {
+.navigationLink.Active::after {
   display: block;
 }
 

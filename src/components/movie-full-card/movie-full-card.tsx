@@ -10,6 +10,7 @@ import classNames from 'classnames';
 import MovieCardNavigation from '../movie-card-navigation';
 import { CommentInfo, MovieInfo } from '../../types/models';
 import { FC } from 'react';
+import MoviePoster from '../movie-poster';
 
 interface MovieFullCardProps {
   movieInfo: MovieInfo;
@@ -44,14 +45,11 @@ export const MovieFullCard: FC<MovieFullCardProps> = ({
 
       <div className={classNames(styles.wrap, styles.TranslateTop)}>
         <div className={styles.info}>
-          <div className={styles.poster}>
-            <img
-              src={movieInfo.poster_image}
-              alt={`${movieInfo.name} poster`}
-              width="218"
-              height="327"
-            />
-          </div>
+          <MoviePoster
+            name={movieInfo.name}
+            src={movieInfo.poster_image}
+            size="big"
+          />
 
           <div className={styles.description}>
             <MovieCardNavigation id={movieInfo.id} />

@@ -8,10 +8,10 @@ interface MovieOverviewProps {
 
 export const MovieOverview: FC<MovieOverviewProps> = ({ movieInfo }) => {
   const ratingToLevel = (rating) => {
-    if (rating > 0 && rating <= 3) return 'Bad';
+    if (rating <= 3) return 'Bad';
     if (rating > 3 && rating <= 5) return 'Normal';
     if (rating > 5 && rating <= 8) return 'Very good';
-    if (rating > 8 && rating <= 10) return 'Awesome';
+    if (rating > 8) return 'Awesome';
   };
 
   return (

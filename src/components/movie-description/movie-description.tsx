@@ -56,7 +56,7 @@ export const MovieDescription: FC<MovieDescriptionProps> = (props) => {
           <span>My list</span>
         </button>
         {props.addReview && (
-          <Link to="/review" className={styles.button}>
+          <Link to="review" className={styles.button}>
             Add review
           </Link>
         )}

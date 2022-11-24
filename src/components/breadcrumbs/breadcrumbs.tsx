@@ -9,9 +9,12 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ children }) => {
   return (
     <nav className={styles.breadcrumbs}>
       <ul className={styles.list}>
-        {children.map((link) => {
-          link.props.className = styles.link;
-          return <li className={styles.item}>{link}</li>;
+        {children.map((link, index) => {
+          return (
+            <li key={index} className={styles.item}>
+              {link}
+            </li>
+          );
         })}
       </ul>
     </nav>

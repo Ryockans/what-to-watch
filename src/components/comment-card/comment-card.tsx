@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { CommentInfo } from '../../types/models';
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import styles from './comment-card.module.css';
 
 interface CommentCardProps {
@@ -8,7 +8,7 @@ interface CommentCardProps {
 }
 
 export const CommentCard: FC<CommentCardProps> = ({ comment }) => {
-  const date = dayjs(comment.date);
+  const date = useMemo(() => dayjs(comment.date), []);
 
   return (
     <div className={styles.review}>

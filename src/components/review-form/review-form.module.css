@@ -1,0 +1,128 @@
+*{
+  box-sizing: border-box;
+}
+
+.review {
+  padding-top: 62px;
+  width: 520px;
+  margin: 0 auto;
+}
+
+.rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  margin-bottom: 15px;
+}
+
+.label {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.label:first-child {
+  padding-right: 0;
+}
+
+.label::after {
+  content: '★';
+  display: block;
+  font-size: 32px;
+  line-height: 36px;
+  color: rgba(56, 44, 42, 0.36);
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+.input {
+  display: none;
+}
+
+.input:checked ~ .label::after {
+  color: rgba(56, 44, 42, 0.7);
+}
+
+.text {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  resize: vertical;
+  border: none;
+  background: none;
+  height: 150px;
+  min-height: 150px;
+  padding: 25px;
+  font-size: 17px;
+  color: #252525;
+  line-height: 24px;
+}
+
+.textarea::-webkit-input-placeholder {
+  opacity: 1;
+  color: #252525;
+}
+
+.textarea:-ms-input-placeholder {
+  opacity: 1;
+  color: #252525;
+}
+
+.textarea::-ms-input-placeholder {
+  opacity: 1;
+  color: #252525;
+}
+
+.textarea::placeholder {
+  opacity: 1;
+  color: #252525;
+}
+
+.textarea:focus {
+  outline: none;
+  background: none;
+}
+
+.submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.button {
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 17px;
+  color: #866866;
+  letter-spacing: 0;
+  line-height: 27px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.button:hover,
+.button:disabled {
+  opacity: 0.5;
+}
+
+.button:disabled {
+  cursor: default;
+}
