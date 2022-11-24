@@ -13,6 +13,12 @@
   padding: 22px 75px;
 }
 
+.Wide {
+  margin-bottom: 40px;
+  width: 100%;
+  position: relative;
+}
+
 .title {
   font-size: 30px;
   line-height: 36px;

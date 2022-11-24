@@ -8,6 +8,7 @@ import { getUser, signIn, signOut } from '../../store/slices/auth/actions';
 import { MainPage } from '../pages/main';
 import { MoviePage } from '../pages/movie';
 import { AddReviewPage } from '../pages/add-review';
+import { SignInPage } from '../pages/sign-in';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -46,6 +47,7 @@ function App() {
         <Route path="/public" element={<PublicPage />} />
         <Route path="/private" element={<PrivatePage />} />
         <Route path="/" element={<MainPage />} />
+        <Route path="/login" element={<SignInPage />} />
         <Route path="/films/:id/*" element={<MoviePage />} />
         <Route path="/films/:id/review" element={<AddReviewPage />} />
       </Routes>

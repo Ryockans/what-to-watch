@@ -9,13 +9,21 @@ import { AppDispatch } from '../../store/store';
 import Breadcrumbs from '../breadcrumbs';
 import styles from './header.module.css';
 import { movieSelector } from '../../store/slices/movie/selectors';
+import classNames from 'classnames';
 
 interface HeaderProps {
   children?: ReactNode;
   breadcrumbs?: boolean;
+  wide?: boolean;
+  noUserBlock?: boolean;
 }
 
-export const Header: FC<HeaderProps> = ({ children, breadcrumbs }) => {
+export const Header: FC<HeaderProps> = ({
+  children,
+  breadcrumbs,
+  wide,
+  noUserBlock,
+}) => {
   const { movieInfo: movie } = useSelector(movieSelector);
   const userInfo = useSelector(userSelector);
   const avatarTemplateUrl = 'https://www.svgrepo.com/show/26473/avatar.svg';
@@ -28,12 +36,16 @@ export const Header: FC<HeaderProps> = ({ children, breadcrumbs }) => {
     if (userInfo) {
       dispatch(signOut()).then(() => navigate(0));
     } else {
-      navigate('/sign-in');
+      navigate('/login');
     }
   };
 
+  const headerClass = wide
+    ? classNames(styles.header, styles.Wide)
+    : styles.header;
+
   return (
-    <header className={styles.header}>
+    <header className={headerClass}>
       <Logo />
 
       <h1 className={styles.title}>{children}</h1>
@@ -47,18 +59,20 @@ export const Header: FC<HeaderProps> = ({ children, breadcrumbs }) => {
         </Breadcrumbs>
       )}
 
-      <ul className={styles.userBlock}>
-        <li className={styles.userBlockItem}>
-          <div className={styles.avatar}>
-            <img src={imageSrc} alt="User avatar" width="63" height="63" />
-          </div>
-        </li>
-        <li className={styles.userBlockItem}>
-          <button className={styles.userBlockButton} onClick={authHandler}>
-            {buttonText}
-          </button>
-        </li>
-      </ul>
+      {!noUserBlock && (
+        <ul className={styles.userBlock}>
+          <li className={styles.userBlockItem}>
+            <div className={styles.avatar}>
+              <img src={imageSrc} alt="User avatar" width="63" height="63" />
+            </div>
+          </li>
+          <li className={styles.userBlockItem}>
+            <button className={styles.userBlockButton} onClick={authHandler}>
+              {buttonText}
+            </button>
+          </li>
+        </ul>
+      )}
     </header>
   );
 };

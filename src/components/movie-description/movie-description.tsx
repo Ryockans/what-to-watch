@@ -1,6 +1,6 @@
 import { AddIcon, InListIcon, PlayIcon } from '../svg-icons';
 import React, { FC } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from './movie-description.module.css';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,10 +24,14 @@ export const MovieDescription: FC<MovieDescriptionProps> = (props) => {
 
   const handleFavoriteClick = () => {
     if (userData === null) {
-      navigate('/sign-in');
+      navigate('/login');
     }
     const nextStatus = props.isFavorite ? 0 : 1;
     dispatch(toggleFavorite({ movieId: props.id, status: nextStatus }));
+  };
+
+  const handleReviewClick = () => {
+    navigate('review');
   };
 
   return (
@@ -56,9 +60,13 @@ export const MovieDescription: FC<MovieDescriptionProps> = (props) => {
           <span>My list</span>
         </button>
         {props.addReview && (
-          <Link to="review" className={styles.button}>
+          <button
+            onClick={handleReviewClick}
+            type="button"
+            className={styles.button}
+          >
             Add review
-          </Link>
+          </button>
         )}
       </div>
     </div>
