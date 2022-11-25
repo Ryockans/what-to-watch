@@ -6,7 +6,9 @@ import SignInForm from '../sign-in-form';
 export const SignInPage = () => {
   return (
     <UserPageWrapper>
-      <Header wide noUserBlock />
+      <Header wide noUserBlock>
+        Sign In
+      </Header>
       <SignInForm />
       <Footer />
     </UserPageWrapper>

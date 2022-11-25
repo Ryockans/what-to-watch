@@ -18,7 +18,7 @@ export const SignInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
-  const regexp = /[0-9A-Za-z.,_-]+@[A-Za-z]+.[a-z]+/;
+  const regexp = /[0-9A-Za-z.,_-]+@[A-Za-z]+\.[a-z]+/;
   const isError = userError !== null;
   const canBeSubmitted = password.length >= 2;
 
@@ -95,7 +95,7 @@ export const SignInForm = () => {
           <button
             className={styles.button}
             type="submit"
-            disabled={canBeSubmitted}
+            disabled={!canBeSubmitted}
           >
             Sign in
           </button>

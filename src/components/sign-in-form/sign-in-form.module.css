@@ -84,6 +84,11 @@
 .button:hover, .button:focus {
   border: 1px solid rgba(217, 205, 141, 0.7); }
 
+.button[disabled], .button[disabled]:hover, .button[disabled]:focus {
+  border: 1px solid rgba(217, 205, 141, 0.1);
+  color: rgba(217, 205, 141, 0.5);
+}
+
 .resetPassword {
   text-align: center; }
 

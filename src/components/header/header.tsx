@@ -10,6 +10,7 @@ import Breadcrumbs from '../breadcrumbs';
 import styles from './header.module.css';
 import { movieSelector } from '../../store/slices/movie/selectors';
 import classNames from 'classnames';
+import { getMovies } from '../../store/slices/movie-list/movie-list-slice';
 
 interface HeaderProps {
   children?: ReactNode;
@@ -40,6 +41,15 @@ export const Header: FC<HeaderProps> = ({
     }
   };
 
+  const avatarClickHandler = () => {
+    if (userInfo) {
+      dispatch(getMovies([]));
+      navigate('/my-list');
+    } else {
+      navigate('/login');
+    }
+  };
+
   const headerClass = wide
     ? classNames(styles.header, styles.Wide)
     : styles.header;
@@ -62,7 +72,7 @@ export const Header: FC<HeaderProps> = ({
       {!noUserBlock && (
         <ul className={styles.userBlock}>
           <li className={styles.userBlockItem}>
-            <div className={styles.avatar}>
+            <div className={styles.avatar} onClick={avatarClickHandler}>
               <img src={imageSrc} alt="User avatar" width="63" height="63" />
             </div>
           </li>
